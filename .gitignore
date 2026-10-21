@@ -1,0 +1,5 @@
+# Dépendances d'éditeur / OS
+.DS_Store
+Thumbs.db
+*.log
+node_modules/

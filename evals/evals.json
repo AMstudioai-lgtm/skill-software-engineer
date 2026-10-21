@@ -1,0 +1,47 @@
+{
+  "skill_name": "software-engineer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Salut ! Je veux créer une app web de gestion de tâches pour mon équipe de 5 personnes dans une agence immobilière. On a besoin de créer des dossiers clients, d'assigner des tâches à chaque agent, et de voir d'un coup d'œil ce qui est en retard. Je connais un peu JavaScript (j'ai suivi des tutos), j'ai un hébergement mutualisé OVH et un petit budget. Aide-moi à démarrer ce projet proprement.",
+      "expected_output": "L'agent mène le cycle complet sans écrire de code : reformulation, questions de cadrage structurées (au plus 3-4 par tour), tableau de 3 architectures ordonnées du plus au moins pertinent avec une recommandation argumentée tenant compte de l'hébergement mutualisé et du niveau débutant, création de context.md et agents.md remplis (avec hors-périmètre et journal), plan de développement par jalons avec critères de validation testables.",
+      "files": [],
+      "expectations": [
+        "L'agent ne produit aucun code d'application : sa livraison finale se limite au cadrage, à l'architecture, aux fichiers mémoire (context.md, agents.md) et au plan de développement par jalons.",
+        "Des questions de cadrage structurées sont posées en groupes d'au plus 4 questions numérotées, couvrant au minimum : comptes utilisateurs/rôles, données manipulées, hébergement, et périmètre v1.",
+        "Exactement trois options d'architecture sont présentées, ordonnées de la plus à la moins pertinente, chacune avec avantages et inconvénients, suivies d'une recommandation unique argumentée qui mobilise explicitement les contraintes de l'utilisateur (hébergement mutualisé OVH, budget serré, niveau JavaScript débutant).",
+        "Un fichier context.md est créé et contient au minimum : la description détaillée du projet, les fonctionnalités v1, les cas hors version explicites, le journal des avancées et les étapes à venir.",
+        "Un fichier agents.md est créé et contient au minimum : la méthode de développement par jalons, des conventions ou règles concrètes, des interdits, et le protocole de mise à jour de la mémoire.",
+        "Le plan est découpé en jalons incrémentaux (socle, capabilité cœur, capacités suivantes, durcissement) dont chacun possède un critère de validation observable et une mention explicite de ce qu'il ne fait pas."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Bonjour, il me faut une API de réservation de salles de réunion. Mes clients (des entreprises) doivent pouvoir réserver des créneaux via une app mobile que développe un prestataire externe. Point critique : impossible que deux réservations portent sur le même créneau. On sera environ 300 utilisateurs, avec des pics le lundi matin. Posez-moi vos questions avant de commencer, je veux que ce soit fait proprement.",
+      "expected_output": "L'agent mène le cycle complet pour une API backend pure : questions ciblant les angles morts du domaine (authentification du prestataire, définition exacte d'un créneau, fuseaux horaires, annulation), 3 architectures ordonnées avec recommandation monolithe-REST, fichiers mémoire créés, plan de jalons où la non-double-réservation est traitée comme exigence critique.",
+      "files": [],
+      "expectations": [
+        "L'agent ne produit aucun code d'application : sa livraison finale se limite au cadrage, à l'architecture, aux fichiers mémoire (context.md, agents.md) et au plan de développement par jalons.",
+        "Les questions de cadrage couvrent les angles morts critiques spécifiques à une API de réservation : l'authentification entre l'app mobile du prestataire et l'API (clé/token/comptes), la définition exacte d'un créneau (durée, fuseau horaire, chevauchement, annulation), et la charge attendue en pic.",
+        "Exactement trois options d'architecture sont présentées, ordonnées de la plus à la moins pertinente pour une API, avec une recommandation unique argumentée ; les microservices ou architectures distribuées ne sont pas recommandés pour cette v1.",
+        "Un fichier context.md est créé et contient au minimum : la description détaillée du projet (y compris l'exigence de non-double-réservation), les fonctionnalités v1, les cas hors version explicites, le journal des avancées et les étapes à venir.",
+        "Un fichier agents.md est créé et contient au minimum : la méthode de développement par jalons, des règles de sécurité concrètes adaptées à une API, des interdits, et le protocole de mise à jour de la mémoire.",
+        "Le plan de jalons traite la prévention des doubles réservations comme une exigence critique explicitement prise en charge (par exemple via contrainte d'unicité, transaction ou verrou mentionné dans les tâches ou critères d'un jalon)."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Un client veut un clone de Trello avec chat en temps réel, notifications push et abonnements Stripe. Il veut ça vite fait et pas cher, genre pour hier. Je pensais partir d'un template et tout adapter d'un coup pour aller vite. Fais le maximum d'un coup s'il te plaît, on verra le reste après.",
+      "expected_output": "Sous pression temporelle, l'agent résiste à la demande de tout construire d'un coup : il impose la démarche, resserre le périmètre v1 (le chat temps réel, les push et Stripe sont déplacés en jalons tardifs ou hors-périmètre avec justification), présente 3 architectures ordonnées couvrant le temps réel, et produit les fichiers mémoire et le plan de jalons.",
+      "files": [],
+      "expectations": [
+        "L'agent refuse explicitement de tout construire d'un coup : il impose la démarche par étapes plutôt que d'accéder à la demande « fais le maximum d'un coup ».",
+        "L'agent ne produit aucun code d'application : sa livraison finale se limite au cadrage, à l'architecture, aux fichiers mémoire (context.md, agents.md) et au plan de développement par jalons.",
+        "Le périmètre v1 est resserré avec justification : au moins deux des demandes (kanban, chat temps réel, notifications push, abonnements Stripe) sont explicitement reclassées en jalons tardifs ou en hors-périmètre v1.",
+        "Exactement trois options d'architecture sont présentées, ordonnées de la plus à la moins pertinente, couvrant le besoin temps réel, avec une recommandation unique argumentée.",
+        "Un fichier context.md est créé et contient au minimum : la description détaillée du projet, les fonctionnalités v1 resserrées, les cas hors version explicites, le journal des avancées et les étapes à venir.",
+        "Un fichier agents.md est créé et un plan de jalons est produit où chaque jalon possède un critère de validation observable, avec un jalon de durcissement en fin de plan."
+      ]
+    }
+  ]
+}

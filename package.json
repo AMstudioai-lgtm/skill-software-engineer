@@ -1,0 +1,36 @@
+{
+  "name": "skill-software-engineer",
+  "version": "1.0.0",
+  "description": "Skill « Ingénieur Logiciel » pour agents IA : architecture recommandée (3 paliers), cadrage des angles morts, mémoire projet context.md / agents.md, plan de développement strict par jalons. « La précision est la clé et la stabilité le but. »",
+  "bin": {
+    "skill-software-engineer": "bin/install.js"
+  },
+  "files": [
+    "bin/",
+    "skill/",
+    "dist/",
+    "evals/",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "skill",
+    "agent",
+    "claude",
+    "claude-code",
+    "codex",
+    "cursor",
+    "ai",
+    "software-engineering",
+    "architecture",
+    "francais"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VOTRE-UTILISATEUR/skill-software-engineer.git"
+  }
+}
