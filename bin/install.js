@@ -79,6 +79,11 @@ function agentTable(HOME) {
       global: path.join(HOME, '.config', 'amp', 'skills'),
       project: path.join('.agents', 'skills'),
     },
+    agents: {
+      label: 'Agent Skills (.agents)',
+      global: path.join(HOME, '.agents', 'skills'),
+      project: path.join('.agents', 'skills'),
+    },
   };
 }
 
@@ -209,7 +214,7 @@ Usage:
   npx github:AMstudioai-lgtm/skill-software-engineer [options]
 
 Options:
-  -a, --agent <noms>   claude | codex | cursor | windsurf | opencode | copilot | amp | auto | all
+  -a, --agent <noms>   claude | codex | cursor | windsurf | opencode | copilot | amp | agents | auto | all
   -g, --global         Installation globale (défaut)
   -p, --project        Installation dans le projet courant
   -y, --yes            Écraser sans demander
