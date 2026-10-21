@@ -26,20 +26,18 @@ Résultats mesurés (benchmark v1, 3 scénarios × 6 assertions) : **100 % avec 
 
 ### Méthode 1 — via `npx` (recommandée, aucune installation préalable)
 
-Remplacez `VOTRE-UTILISATEUR` par votre compte GitHub après avoir poussé ce dépôt :
-
 ```bash
 # Détection automatique de l'agent + installation globale
-npx github:VOTRE-UTILISATEUR/skill-software-engineer
+npx github:AMstudioai-lgtm/skill-software-engineer
 
 # Choisir explicitement l'agent (plusieurs possibles, séparés par des virgules)
-npx github:VOTRE-UTILISATEUR/skill-software-engineer -- --agent claude,codex -g
+npx github:AMstudioai-lgtm/skill-software-engineer -- --agent claude,codex -g
 
 # Installer dans le projet courant (.claude/skills/, .cursor/skills/, …)
-npx github:VOTRE-UTILISATEUR/skill-software-engineer -- --project
+npx github:AMstudioai-lgtm/skill-software-engineer -- --project
 
 # Sans confirmation (CI / scripts)
-npx github:VOTRE-UTILISATEUR/skill-software-engineer -- --yes
+npx github:AMstudioai-lgtm/skill-software-engineer -- --yes
 ```
 
 > 💡 L'installateur est **zéro dépendance** (Node ≥ 18) : il s'exécute instantanément, sans `npm install`.
@@ -49,13 +47,13 @@ npx github:VOTRE-UTILISATEUR/skill-software-engineer -- --yes
 Si le dépôt est public, les consommateurs du standard *Agent Skills* peuvent aussi faire :
 
 ```bash
-npx skills add VOTRE-UTILISATEUR/skill-software-engineer
+npx skills add AMstudioai-lgtm/skill-software-engineer
 ```
 
 ### Méthode 3 — clonage manuel
 
 ```bash
-git clone https://github.com/VOTRE-UTILISATEUR/skill-software-engineer.git
+git clone https://github.com/AMstudioai-lgtm/skill-software-engineer.git
 mkdir -p ~/.claude/skills
 cp -r skill-software-engineer/skill/software-engineer ~/.claude/skills/
 ```
@@ -96,7 +94,7 @@ CADRER → ARCHITECTURER → MÉMORISER → PLANIFIER → CONSTRUIRE → MAINTEN
 ### Désinstallation
 
 ```bash
-npx github:VOTRE-UTILISATEUR/skill-software-engineer -- --uninstall
+npx github:AMstudioai-lgtm/skill-software-engineer -- --uninstall
 ```
 
 ---

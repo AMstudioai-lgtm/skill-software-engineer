@@ -6,8 +6,8 @@
  * répertoire de skills de l'agent détecté ou choisi.
  *
  * Usage :
- *   npx github:VOTRE-UTILISATEUR/skill-software-engineer
- *   npx github:VOTRE-UTILISATEUR/skill-software-engineer -- --agent claude,codex -g
+ *   npx github:AMstudioai-lgtm/skill-software-engineer
+ *   npx github:AMstudioai-lgtm/skill-software-engineer -- --agent claude,codex -g
  *   npx skill-software-engineer            (si publié sur npm)
  *
  * Options :
@@ -206,7 +206,7 @@ async function main() {
 ${ROOT_MARK}
 
 Usage:
-  npx github:VOTRE-UTILISATEUR/skill-software-engineer [options]
+  npx github:AMstudioai-lgtm/skill-software-engineer [options]
 
 Options:
   -a, --agent <noms>   claude | codex | cursor | windsurf | opencode | copilot | amp | auto | all
