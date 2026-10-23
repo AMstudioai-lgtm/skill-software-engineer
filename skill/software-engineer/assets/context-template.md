@@ -46,7 +46,8 @@
 
 ## 6. Architecture choisie
 
-- **Type d'application** : [A/B/C/D/E + libellé]
+- **Plateforme** : [web / API / mobile] — guide d'architecture utilisé : [references/web-api.md ou references/mobile.md]
+- **Type d'application** : [type de la matrice du guide + libellé, ex. « mobile/D — offline-first terrain »]
 - **Architecture retenue** : [option 1ᵉʳ palier retenue ou variante]
 - **Stack** : [langage, framework, BDD, hébergement, ORM/outils principaux]
 - **Alternatives écartées** : [option écartée → raison courte, renvoi au §7 si détaillé]
