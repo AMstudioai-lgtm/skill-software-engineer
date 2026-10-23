@@ -42,6 +42,20 @@
         "Un fichier context.md est créé et contient au minimum : la description détaillée du projet, les fonctionnalités v1 resserrées, les cas hors version explicites, le journal des avancées et les étapes à venir.",
         "Un fichier agents.md est créé et un plan de jalons est produit où chaque jalon possède un critère de validation observable, avec un jalon de durcissement en fin de plan."
       ]
+    },
+    {
+      "id": 4,
+      "prompt": "Je veux créer une app mobile de suivi d'habitudes pour les étudiants : saisie quotidienne rapide, rappels à heure fixe, petit écran de statistiques, et surtout ça doit marcher même sans réseau (en amphi, dans le métro, en voyage). Je suis seul à développer, je connais un peu JavaScript, budget quasi nul. Objectif : la publier sur l'App Store et le Play Store.",
+      "expected_output": "L'agent mène le cycle complet pour une app mobile : questions de cadrage incluant les angles morts mobiles (comptes développeur/stores, mode hors ligne et synchronisation, notifications/rappels, version OS minimale), 3 architectures mobiles ordonnées du plus au moins pertinent (cross-platform + BaaS + stockage local en défaut, backend séparé, natif), recommandation argumentée par le budget et le profil solo JavaScript, fichiers mémoire créés, plan de jalons adapté au mobile (J0 build/distribution interne, JD soumission stores) sans recommandation web-only.",
+      "files": [],
+      "expectations": [
+        "L'agent ne produit aucun code d'application : sa livraison finale se limite au cadrage, à l'architecture, aux fichiers mémoire (context.md, agents.md) et au plan de développement par jalons.",
+        "Les questions de cadrage couvrent au moins trois angles morts spécifiques au mobile parmi : comptes développeur et publication sur les stores, mode hors ligne et synchronisation des données, notifications/rappels (FCM/APNs), permissions, version OS minimale ou exigences des stores (politique de confidentialité, suppression de compte).",
+        "Exactement trois options d'architecture sont présentées, ordonnées de la plus à la moins pertinente, toutes adaptées à un client mobile (cross-platform, natif ou PWA), avec une recommandation unique argumentée mobilisant les contraintes réelles (développeur solo JavaScript, budget quasi nul, hors ligne requis) ; l'option par défaut proposée est de type cross-platform + BaaS + stockage local.",
+        "Le client mobile n'est jamais traité comme un site web : aucune recommandation d'héberger l'application elle-même sur un hébergement web mutualisé, aucune centralisation du plan sur SEO/SSR ; le backend éventuel est traité comme BaaS ou API distincte du client.",
+        "Un fichier context.md et un fichier agents.md sont créés et remplis avec le contenu réel du projet (description, fonctionnalités v1, hors-périmètre, décisions, journal, étapes à venir ; méthode, conventions, interdits, protocole de mise à jour).",
+        "Le plan est découpé en jalons incrémentaux avec critères de validation observables, adaptés au mobile : le socle inclut build/signature et distribution interne (TestFlight ou track Play interne), et un jalon de durcissement/publication inclut la soumission aux stores avec les délais de review."
+      ]
     }
   ]
 }

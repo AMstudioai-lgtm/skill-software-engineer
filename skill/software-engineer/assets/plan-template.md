@@ -2,6 +2,7 @@
 
 > **Architecture retenue** : [résumé en 1 ligne]
 > **Règle d'or** : un jalon à la fois, validé avant de passer au suivant. Chaque jalon livre une capacité **testable de bout en bout** — jamais un quart de produit générique.
+> **Adaptation plateforme** : pour une app mobile, le socle J0 inclut le build/signature et la distribution interne, et le durcissement JD inclut la soumission aux stores avec leurs délais de review (voir `references/mobile.md` §6).
 > **Suivi** : reporter le statut dans le tableau final et dans `context.md` §8/§9 après chaque validation.
 
 ## J0 — Socle du projet

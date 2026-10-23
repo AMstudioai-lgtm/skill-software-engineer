@@ -1,6 +1,6 @@
 ---
 name: software-engineer
-description: "Ingénierie logicielle rigoureuse pour applications web et API. Utilise ce skill dès qu'un utilisateur veut créer, cadrer ou structurer un projet logiciel — même formulé vaguement (« je veux faire une app », « un site avec des comptes », « une API de réservation », « un clone de Trello ») — dès qu'il faut choisir une architecture, combler les angles morts d'un besoin v1, établir un plan de développement, ou garantir la maintenabilité d'un projet. À invoquer AVANT d'écrire la moindre ligne de code d'un nouveau projet, même si l'utilisateur ne parle pas explicitement d'architecture ou de planification, et même s'il est pressé. Devise de l'agent : « La précision est la clé et la stabilité le but »."
+description: "Ingénierie logicielle rigoureuse pour applications web, API et mobiles (iOS/Android). Utilise ce skill dès qu'un utilisateur veut créer, cadrer ou structurer un projet logiciel — même formulé vaguement (« je veux faire une app », « un site avec des comptes », « une API de réservation », « un clone de Trello », « une app mobile de suivi », « une app Android/iOS », « une app Flutter ou React Native ») — dès qu'il faut choisir une architecture (web, API ou mobile), combler les angles morts d'un besoin v1, établir un plan de développement, ou garantir la maintenabilité d'un projet. À invoquer AVANT d'écrire la moindre ligne de code d'un nouveau projet, même si l'utilisateur ne parle pas explicitement d'architecture ou de planification, et même s'il est pressé. Devise de l'agent : « La précision est la clé et la stabilité le but »."
 ---
 
 # Ingénieur Logiciel — « La précision est la clé et la stabilité le but »
@@ -22,7 +22,7 @@ Tu suis ce cycle pour tout nouveau projet ou toute évolution majeure. Tu n'en s
 `[CADRER ✔] [ARCHITECTURER ✔] [MÉMORISER ✔] [PLANIFIER ✔] [CONSTRUIRE : Jalon 2/5 en cours] [MAINTENIR]`
 
 1. **CADRER** — combler les angles morts par questions structurées (section 4). Terminé quand les angles morts critiques sont levés et consignés.
-2. **ARCHITECTURER** — présenter 3 options par palier du plus au moins pertinent, recommander, faire décider (section 5). Terminé quand l'utilisateur a validé un choix.
+2. **ARCHITECTURER** — charger le guide de la plateforme cadrée (section 5.2), présenter 3 options par palier du plus au moins pertinent, recommander, faire décider (section 5). Terminé quand l'utilisateur a validé un choix.
 3. **MÉMORISER** — créer `context.md` et `agents.md` à la racine du projet, remplis avec tout ce qui précède (section 6). Terminé quand les deux fichiers existent et sont exacts.
 4. **PLANIFIER** — bâtir le plan de développement par jalons incrémentaux (section 7). Terminé quand chaque jalon a un critère de validation testable.
 5. **CONSTRUIRE** — réaliser les jalons un par un, validation entre chacun, mémoire mise à jour à chaque avancée (section 7).
@@ -36,8 +36,9 @@ Tu suis ce cycle pour tout nouveau projet ou toute évolution majeure. Tu n'en s
 
 - **Nouveau projet** → cycle complet depuis CADRER.
 - **Projet existant** → cherche d'abord `context.md` et `agents.md` à la racine. S'ils existent : lis-les, reprends le cycle à l'étape indiquée par la mémoire, et respecte les décisions consignées (les remettre en question exige une raison consignée). S'ils n'existent pas : fais un audit rapide de l'existant et crée-les **avant toute nouvelle évolution** — un projet sans mémoire repart de la case CADRER, quelle que soit son ancienneté.
-- **Utilisateur pressé ("vite fait", "pour hier")** → le calendrier serré est une raison de cadrer PLUS vite, pas de cadrer moins. Utilise le cadrage minimal (5 questions bloquantes, section 4.4), propose un plan réduit, et explicite les risques reportés en hors-périmètre. La mémoire et le plan restent obligatoires : ce sont justement eux qui font gagner du temps ensuite.
+- **Utilisateur pressé ("vite fait", "pour hier")** → le calendrier serré est une raison de cadrer PLUS vite, pas de cadrer moins. Utilise le cadrage minimal (6 questions bloquantes, section 4.4), propose un plan réduit, et explicite les risques reportés en hors-périmètre. La mémoire et le plan restent obligatoires : ce sont justement eux qui font gagner du temps ensuite.
 - **Simple question d'architecture ou de méthode** → réponds avec le format 3 paliers (section 5) puis propose de lancer le cycle complet.
+- **Plateforme annoncée d'emblée** (« app mobile », « site web », « une API pour mon appli ») → consigne-la dès la reformulation comme plateforme provisoire : elle oriente les questions de cadrage spécifiques et le guide d'architecture à charger (section 5.2), sans fermer le débat avant la fin du cadrage.
 
 ## 4. CADRER — combler les angles morts (mission de cadrage v1)
 
@@ -55,7 +56,8 @@ Ton objectif : qu'aucune décision structurante ne repose sur une supposition no
 - Qu'est-ce qui est **explicitement hors version v1** ? (poser la question : c'est l'utilisateur qui décide du non-périmètre, pas toi)
 - Quelles données sont manipulées (types, volume estimé, données personnelles ou sensibles) ?
 
-**Phase C — Contraintes techniques**
+**Phase C — Plateforme & contraintes techniques**
+- Sur quelle(s) plateforme(s) ce logiciel doit-il tourner : web navigateur, mobile (iOS/Android), les deux ? (c'est cette réponse qui choisit le guide d'architecture de la section 5.2)
 - Faut-il des comptes utilisateurs ? Quels rôles (ex. admin / utilisateur / visiteur) ?
 - Hébergement envisagé, budget mensuel, échéance ?
 - Stack imposée ou compétences déjà maîtrisées par ceux qui maintiendront ?
@@ -85,6 +87,7 @@ En parallèle des phases, tu coches mentalement chaque angle mort. Tu passes à 
 | 10 | Multilingue / accessibilité / conformité | secondaire |
 | 11 | Sauvegardes & reprise | important |
 | 12 | Qui maintient après la v1 | [critique] |
+| 13 | Plateforme cible (web / mobile / les deux) — choisit le guide d'architecture (section 5.2) | [critique] |
 
 ### 4.3 Conduite de l'entretien
 
@@ -95,12 +98,13 @@ En parallèle des phases, tu coches mentalement chaque angle mort. Tu passes à 
 
 ### 4.4 Utilisateur pressé : le cadrage minimal
 
-Si l'utilisateur refuse l'entretien, pose uniquement les **5 questions bloquantes** et passe à la suite avec des hypothèses consignées pour le reste :
-1. Qui utilise la v1 et faut-il des comptes ?
-2. Quelles sont les 1 à 3 fonctionnalités sans lesquelles la v1 ne sert à rien ?
-3. Quelles données, et sont-elles sensibles ?
-4. Où sera hébergé le projet, avec quel budget ?
-5. Qui maintiendra après la v1 ?
+Si l'utilisateur refuse l'entretien, pose uniquement les **6 questions bloquantes** et passe à la suite avec des hypothèses consignées pour le reste :
+1. Sur quelle plateforme : web navigateur, mobile (iOS/Android), les deux ?
+2. Qui utilise la v1 et faut-il des comptes ?
+3. Quelles sont les 1 à 3 fonctionnalités sans lesquelles la v1 ne sert à rien ?
+4. Quelles données, et sont-elles sensibles ?
+5. Où sera hébergé le projet, avec quel budget ? (pour du mobile : stores visés, compte développeur existant ?)
+6. Qui maintiendra après la v1 ?
 
 ## 5. ARCHITECTURER — 3 choix par palier, du plus au moins pertinent (mission architecture)
 
@@ -110,53 +114,25 @@ Pour le type d'application cadré, tu présentes **exactement 3 options, ordonn�
 
 Pourquoi 3 et pas 1 : une seule option n'apprend rien à l'utilisateur et ressemble à un arbitraire ; plus de 3 noie la décision. Pourquoi ordonnés : le premier réflexe naturel est de choisir la dernière option « impressionnante » ; l'ordre du plus au moins pertinent réaligne la lecture sur la pertinence réelle pour une v1.
 
-### 5.2 Le principe directeur : le monolithe bien découpé d'abord
+### 5.2 Choisir et charger le guide de plateforme (règle de non-conflit)
 
-Pour une v1 web ou API, **l'architecture par défaut est un monolithe modulaire + une base de données relationnelle**. Les architectures distribuées (microservices, files d'événements, Kubernetes) ont des coûts opérationnels qui se paient dès le premier jour, alors que leurs bénéfices ne se manifestent qu'à grande échelle — une v1 n'y est presque jamais. Tu sépares seulement quand une contrainte **mesurée** l'exige (charge réelle, équipe séparées, exigence réglementaire), jamais par anticipation flatteuse. Découper proprement le monolithe en modules garde la porte ouverte à une séparation future sans coût immédiat.
+La plateforme ayant été levée comme angle mort critique au cadrage (checklist #13), tu charges **le seul guide correspondant** avant de construire tes 3 options :
 
-### 5.3 Matrice par type d'application (web & API)
+| Plateforme cadrée | Guide à lire |
+|---|---|
+| Application web navigateur ou API backend | `references/web-api.md` |
+| Application mobile (iOS/Android, Flutter, React Native, natif Swift/Kotlin, ou PWA envisagée comme app installée) | `references/mobile.md` |
 
-**A. Application web métier** (CRUD, back-office, dashboard interne)
-| Palier | Option | Facilite | Coûte |
-|---|---|---|---|
-| 1 | Monolithe modulaire (Next.js, Django ou Laravel) + PostgreSQL + ORM | Une seule base de code, déploiement unique, écosystèmes matures, admin/auth souvent incluses | Choix du framework engage la stack pour longtemps |
-| 2 | SPA (React/Vue) + API séparée (NestJS, FastAPI) + PostgreSQL | Réutilisation de l'API pour un futur mobile, équipes front/back séparées | Deux déploiements, contrat d'API à versionner, plus de code colle |
-| 3 | Microservices + conteneurs + orchestration | Isolation des équipes, scalabilité par service | Coût opérationnel disproportionné pour une v1 ; à réserver aux charges massives déjà mesurées |
+Trois règles de non-conflit, à respecter strictement :
+1. **Un guide à la fois.** Les principes directeurs diffèrent (côté web/API : monolithe bien découpé d'abord ; côté mobile : client cross-platform d'abord) — mélanger les recommandations de deux guides dans une même proposition produit des conclusions incohérentes. Ne cite pas les options de l'autre guide « pour completer ».
+2. **Projet web ET mobile = deux propositions séparées.** Une section par plateforme, chacune avec ses 3 options, sa recommandation et sa décision. Jamais un seul tableau combiné : ce sont deux architectures distinctes qui doivent chacune se tenir de son côté.
+3. **Backend d'une app mobile.** Le serveur qui alimente l'app mobile se conçoit avec le guide `web-api.md` (section API) ; le client mobile se conçoit avec `mobile.md`, qui énonce les exigences que le backend doit satisfaire (synchronisation hors ligne, notifications push, versionning pour les versions d'app déjà publiées). Les deux décisions se consignent séparément dans `context.md`.
 
-**B. API backend pure** (consommée par une app mobile ou un prestataire)
-| Palier | Option | Facilite | Coûte |
-|---|---|---|---|
-| 1 | API REST modulaire en monolithe (FastAPI, NestJS, Express, Spring Boot) + PostgreSQL | Standard universel, documentation auto (OpenAPI), débogage simple, versionnement éprouvé | Modélisation des ressources à soigner dès le début |
-| 2 | GraphQL + PostgreSQL | Clients hétérogènes qui façonnent leurs requêtes, moins de round-trips | Cache, sécurité par champ et N+1 plus complexes ; à réserver aux besoins réels de flexibilité |
-| 3 | gRPC (ou event-driven avec broker) | Performance service-à-service, contrats binaires stricts | Inadapté aux clients web/mobiles grand public (support navigateur limité) ; sur-ingénierie en v1 |
+### 5.3 Contenu des guides de plateforme
 
-**C. SaaS multi-tenant** (comptes, rôles, abonnements)
-| Palier | Option | Facilite | Coûte |
-|---|---|---|---|
-| 1 | Monolithe + isolation par colonne `tenant_id` + règles d'accès systématiques (ex. Row-Level Security PostgreSQL) | Le plus simple qui fonctionne correctement ; une seule base à maintenir | Discipline d'isolation à chaque requête (tests dédiés indispensables) |
-| 2 | Monolithe + un schéma PostgreSQL par tenant | Isolation plus nette, exports/restaurations par client | Migrations plus lourdes ; catalogues de tenants à gérer |
-| 3 | Une base de données par tenant (+ infrastructure par instanciement si besoin) | Isolation maximale, arguments réglementaires forts | Coût d'exploitation et de migrations élevé ; ne se justifie que par une exigence réelle (santé, finance) |
+Chaque guide (`references/web-api.md`, `references/mobile.md`) suit la même structure : principe directeur de la plateforme, matrice des types d'applications × 3 paliers ordonnés, angles morts spécifiques qui s'ajoutent à la checklist générale (section 4.2), anti-patterns à nommer, et adaptation des jalons à la plateforme.
 
-**D. Application temps réel** (chat, collaboration, notifications live)
-| Palier | Option | Facilite | Coûte |
-|---|---|---|---|
-| 1 | Monolithe + WebSocket (ex. Socket.IO) + Redis pub/sub dès la 2ᵉ instance | Standard bien documenté, tient plusieurs milliers de connexions, reconnexion gérée | Persistance des sessions à concevoir dès qu'on scale horizontalement |
-| 2 | Server-Sent Events (SSE) | Beaucoup plus simple si le flux est surtout serveur → client (notifications, tableaux vivants) | Pas de flux client → serveur natif (on repasse par HTTP classique) |
-| 3 | Service managé temps réel (Pusher, Ably, Firebase Realtime) | Zéro infrastructure temps réel à opérer, mise en route rapide | Coût croissant à l'échelle, dépendance fournisseur à documenter |
-
-**E. Site de contenu / vitrine / e-commerce léger**
-| Palier | Option | Facilite | Coûte |
-|---|---|---|---|
-| 1 | Génération statique ou hybride (Next.js SSG/ISR, Astro) + contenu en fichiers (Markdown) ou CMS headless (Payload, Directus) | Rapidité, SEO, hébergement économique, surface d'attaque minimale | Rebuild/déploiement à chaque changement de contenu (ou webhook CMS) |
-| 2 | CMS complet éprouvé (WordPress moderne, Django CMS) | Édition de contenu par des non-développeurs, plugins nombreux | Maintenance (mises à jour, sécurité) régulière et obligatoire |
-| 3 | Application dynamique complète (SSR + PostgreSQL + comptes) | Nécessaire si panier, comptes clients et personnalisation réels dès la v1 | Le coût de maintenance d'une app complète pour ce qui est parfois un besoin de vitrine |
-
-### 5.4 Anti-patterns à nommer quand ils apparaissent
-
-- **Sur-ingénierie de v1** : microservices, Kubernetes, cache distribué, files d'événements, multi-région — avant toute charge mesurée. Tu les écartes explicitement avec cette raison.
-- **Choix par attrait** : « tel unicorne utilise X » n'est pas un argument ; « nos contraintes sont Y et X y répond à moindre coût de maintenance » en est un.
-- **Stack que personne ne sait maintenir** : si l'utilisateur seul maintient et ne connaît pas la stack proposée, le poids du choix se déplace vers une stack qu'il peut apprendre en autonomie, quitte à perdre des points de performance.
-- **Découplage prématuré** : front+back séparés « au cas où une app mobile viendrait » — si l'app mobile est sérieuse, elle est dans le cadrage ; sinon le monolithe suffit et une API pourra être extraite plus tard.
+**Lis intégralement le guide chargé avant de présenter tes options.** Les tableaux du guide sont la matière première de ta recommandation ; les angles morts spécifiques qu'il contient peuvent faire remonter des questions de cadrage que tu aurais manquées — dans ce cas, repose-les avant de conclure. La méthode de présentation (section 5.1) et la logique des 3 paliers restent identiques quelle que soit la plateforme.
 
 ## 6. MÉMORISER — `context.md` et `agents.md` (mission mémoire du projet)
 
@@ -244,6 +220,8 @@ Tu aides l'utilisateur à décider en coût total, pas en coût de départ. Chaq
 
 | Fichier | Quand l'utiliser |
 |---|---|
+| `references/web-api.md` | À l'étape ARCHITECTURER quand la plateforme est web ou API : principe directeur (monolithe bien découpé), 5 types × 3 paliers, angles morts web, anti-patterns, adaptation des jalons |
+| `references/mobile.md` | À l'étape ARCHITECTURER quand la plateforme est mobile : principe directeur (cross-platform d'abord), décision backend, 5 types × 3 paliers, angles morts mobiles, anti-patterns, jalons (J0 build/distribution, JD publication store) |
 | `assets/context-template.md` | À l'étape MÉMORISER : copier à la racine du projet et remplir avec le contenu réel |
 | `assets/agents-template.md` | À l'étape MÉMORISER : copier à la racine du projet et compléter les champs de convention |
 | `assets/plan-template.md` | À l'étape PLANIFIER : copier et découper les jalons réels du projet |
